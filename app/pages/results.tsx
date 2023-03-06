@@ -3,17 +3,19 @@ import Card from "../components/Card";
 import Data from '../lib/sample-data/card-data.json';
 
 export interface CardObject {
+  id: number;
   username: string;
   projectTitle: string;
   projectType: string;
   projectDescription: string;
   techstack: string[];
-  dateCreated: Date;
+  dateCreated: string;
 }
 
-export default function Results() {
-  const [card, setCard] = useState<CardObject>();
 
+export default function Results() {
+
+  // previous attempt to import json data - can be discarded
   /* useEffect(() => {
     async function getCards() {
       const response = await fetch('../lib/sample-data/card-data.json', 
@@ -28,17 +30,14 @@ export default function Results() {
     }
     getCards();
   }, []) */
-  
 
   return (
     <>
       <p>Where is my card?</p>
       {
-        Data.map(object => {
+        Data.map((card) => {
           return(
-            <div key={object.id}>
-              { object.projectTitle}
-            </div>
+              <Card key={card.id} id={card.id} projectDescription={card.projectDescription} projectTitle={card.projectTitle} username={card.username} projectType={card.projectType} techstack={card.techstack} dateCreated={card.dateCreated}></Card>
           )
         })
       }
