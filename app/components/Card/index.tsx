@@ -2,23 +2,23 @@ import styles from "./index.module.css";
 
 export default function Card() {
   return (
-    <div className={styles.techlist}>
-      <h1>Project Title</h1>
-      <h2>Come Built With Me</h2>
-      <p>
+    <div className={styles.card}>
+      <h1 className={styles.projectTitle}>Project Title</h1>
+      <h2 className={styles.projectType}>Come Build With Me</h2>
+      <p className={styles.projectDescription}>
         Project Description is included in this section. What are the project
         goals etc. In a short description
       </p>
 
-      <h3>Technologies</h3>
-      <div>
+      <h3 className={styles.techTitle}>Technologies</h3>
+      <div className={styles.techstack}>
         <p>React</p>
 
         <p>JavaScript</p>
 
         <p>HTML</p>
       </div>
-      <div>
+      <div className={styles.contactContainer}>
         <div>
           <h3>Contact</h3>
           <p>Name is here</p>
