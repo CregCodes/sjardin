@@ -1,31 +1,53 @@
 import styles from "./index.module.css";
 
-export default function Card() {
+export interface CardObject {
+  id: number;
+  username: string;
+  projectTitle: string;
+  projectType: string;
+  projectDescription: string;
+  techstack: string[];
+  dateCreated: string;
+}
+/** takes in a timestamp string and returns the date in order */
+function getDateFromProps(inputString: string): string {
+  const date = inputString.toString();
+  
+  // Get the first 10 characters of the string
+  const firstTenChars = date.slice(0, 10);
+  
+  // Reverse the order of the characters using the Array.prototype.reverse() method
+  const reversedChars = firstTenChars.split('').reverse().join('');
+
+  return reversedChars;
+}
+ 
+
+export default function Card( props: CardObject) {
   return (
-    <div className={styles.techlist}>
-      <h1>Project Title</h1>
-      <h2>Come Built With Me</h2>
-      <p>
-        Project Description is included in this section. What are the project
-        goals etc. In a short description
+    <div className={styles.card}>
+      <h1 className={styles.projectTitle}>{props.projectTitle}</h1>
+      <h2 className={styles.projectType}>{props.projectType}</h2>
+      <p className={styles.projectDescription}>
+        {props.projectDescription}
       </p>
 
-      <h3>Technologies</h3>
-      <div>
-        <p>React</p>
+      <h3 className={styles.techTitle}>Technologies</h3>
+      <div className={styles.techstack}>
+        <p>{props.techstack[1]}</p>
 
-        <p>JavaScript</p>
+        <p>{props.techstack[2]}</p>
 
-        <p>HTML</p>
+        <p>{props.techstack[3]}</p>
       </div>
-      <div>
+      <div className={styles.contactContainer}>
         <div>
           <h3>Contact</h3>
-          <p>Name is here</p>
+          <p>{props.username}</p>
         </div>
         <div>
           <h3>Date Added</h3>
-          <p>01.03.23</p>
+          <p>{getDateFromProps(props.dateCreated)}</p>
         </div>
       </div>
     </div>
