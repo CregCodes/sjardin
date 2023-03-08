@@ -36,19 +36,19 @@ export default function Results() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-row justify-between items-center">
-        <div className="w-1/4 bg-white">
+      <div className="flex flex-row justify-between items-center border-solid border-4 border-light-blue-500 h-20">
+        <div className="w-1/4 bg-white border-solid border-4 border-light-blue-500 ">
           <CreatePost />
         </div>
-        <div className="w-3/4 bg-black">
+        <div className="w-3/4 bg-black border-solid border-4 border-light-blue-500 ">
           <SearchBar />
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center">
-        <div className="w-1/4 bg-white">
+      <div className="flex flex-row justify-between items-center border-solid border-4 border-light-blue-500 ">
+        <div className="w-1/4 bg-white border-solid border-4 border-light-blue-500 ">
           <FilterBar />
         </div>
-        <div className="w-3/4 bg-white">
+        <div className="w-3/4 bg-white border-solid border-4 border-light-blue-500 flex flex-wrap justify-around m-0 p-0">
           {Data.map((card) => {
             return (
               <Card
