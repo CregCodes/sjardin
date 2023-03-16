@@ -33,6 +33,28 @@ export default function Results() {
     getCards();
   }, []) */
 
+  const [cardData, setCardData] = useState<CardObject[]>(Data);
+  // this state stores the initial data for the reset button - it is a temporary work around until we have the tag functionality working
+  const [initialCardData, setInitialCardData] = useState<CardObject[]>(Data);
+  const [searchInput, setSearchInput] = useState("");  
+
+  function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearchInput(e.target.value);
+    console.log(e.target.value)
+  }
+
+  function handleSearchSubmit() {
+    console.log("You sumbitted the search bar");
+    const newCardData = cardData.filter((card) => {
+      return card.projectTitle.includes(searchInput) || card.projectDescription.includes(searchInput);
+    });
+    setCardData(newCardData);
+  }
+
+  function handleClearSearch() {
+    setCardData(initialCardData);
+  }
+
   return (
     <>
       <Navbar />
@@ -40,8 +62,8 @@ export default function Results() {
         <div className="w-1/4 bg-white border-solid border-4 border-light-blue-500 ">
           <CreatePost />
         </div>
-        <div className="w-3/4 bg-black border-solid border-4 border-light-blue-500 ">
-          <SearchBar />
+        <div className="w-3/4 bg-green border-solid border-4 border-black ">
+          <SearchBar handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} handleClearSearch={handleClearSearch}/>
         </div>
       </div>
       <div className="flex flex-row justify-between items-center border-solid border-4 border-light-blue-500 ">
@@ -49,7 +71,7 @@ export default function Results() {
           <FilterBar />
         </div>
         <div className="w-3/4 bg-white border-solid border-4 border-light-blue-500 flex flex-wrap justify-around m-0 p-0">
-          {Data.map((card) => {
+          {cardData.map((card) => {
             return (
               <Card
                 key={card.id}
