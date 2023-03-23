@@ -1,4 +1,4 @@
-import styles from "./index.module.css";
+import styles from "./card.module.css";
 
 export interface CardObject {
   id: number;
@@ -24,25 +24,33 @@ function getDateFromProps(inputString: string): string {
 
 export default function Card(props: CardObject) {
   return (
-    <div className="card w-96 bg-primary text-primary-content mb-5">
-      <div className="card-body">
-        <h2 className="card-title bg-white">{props.projectTitle}</h2>
-        <p>{props.projectType}</p>
-        <p>{props.projectDescription}</p>
-        <h3>Technologies</h3>
-        <div>
-          <p>{props.techstack[1]}</p>
-
-          <p>{props.techstack[2]}</p>
-
-          <p>{props.techstack[3]}</p>
+    <div className={styles.cardContainer}>
+      <div className={styles.card}>
+        <div className={styles.titleContainer}>
+          <h2>{props.projectTitle}</h2>
         </div>
-        <div>
-          <div>
+        <div className={styles.typeContainer}>
+          <p>Come {props.projectType} with me</p>
+        </div>
+        <div className={styles.descriptionContainer}>
+          <p>{props.projectDescription}</p>
+        </div>
+        <div className={styles.techContainer}>
+          <h3>Technologies</h3>
+          <div className={styles.techlist}>
+            <p>{props.techstack[1]}</p>
+
+            <p>{props.techstack[2]}</p>
+
+            <p>{props.techstack[3]}</p>
+          </div>
+        </div>
+        <div className={styles.infoContainer}>
+          <div className={styles.contactContainer}>
             <h3>Contact</h3>
             <p>{props.username}</p>
           </div>
-          <div>
+          <div className={styles.dateContainer}>
             <h3>Date Added</h3>
             <p>{getDateFromProps(props.dateCreated)}</p>
           </div>
