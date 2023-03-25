@@ -29,16 +29,32 @@ function checkIfEmpty(inputString: string): boolean {
   return true;
 }
 
+function getColourFromType(inputString: string): string {
+  if (inputString === "build") {
+    return "yellow";
+  }
+  if (inputString === "pair") {
+    return "blue";
+  }
+  if (inputString === "study") {
+    return "green";
+  }
+  return "red";
+}
+
 export default function Card(props: CardObject) {
   return (
     <div className={styles.cardContainer}>
+        <div className={styles.underlay}>
+
+        </div>
       <div className={styles.card}>
         <div className={styles.titleContainer}>
           <h2>{props.projectTitle.toUpperCase()}</h2>
         </div>
-        <div className={styles.typeContainer}>
+        <button className={styles.typeContainer}>
           <p>{`COME ${props.projectType.toUpperCase()} WITH ME >>`}</p>
-        </div>
+        </button>
         <div className={styles.descriptionContainer}>
           <p>{props.projectDescription}</p>
         </div>
