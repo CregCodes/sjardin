@@ -1,4 +1,5 @@
 import styles from "./card.module.css";
+import { useState } from "react";
 
 export interface CardObject {
   id: number;
@@ -29,24 +30,26 @@ function checkIfEmpty(inputString: string): boolean {
   return true;
 }
 
-function getColourFromType(inputString: string): string {
+/** takes in the project type and returns a number. That number is then stored in the stylesIndex which will be used to conditionally render the appropriate style */
+function getNumberFromType(inputString: string): number {
   if (inputString === "build") {
-    return "yellow";
-  }
-  if (inputString === "pair") {
-    return "blue";
+    return 1;
   }
   if (inputString === "study") {
-    return "green";
+    return 2;
   }
-  return "red";
+  if (inputString === 'pair') {
+    return 3;
+  }
+  return 1;
 }
 
 export default function Card(props: CardObject) {
-  return (
-    <div className={styles.cardContainer}>
-        <div className={styles.underlay}>
+  const [styleIndex, setStyleIndex] = useState(getNumberFromType(props.projectType))
 
+  return (
+    <div className={styleIndex === 1 ? styles.buildCardContainer : styleIndex === 2 ? styles.studyCardContainer : styles.pairCardContainer}>
+        <div className={styles.underlay}>
         </div>
       <div className={styles.card}>
         <div className={styles.titleContainer}>
