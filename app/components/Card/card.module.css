@@ -1,12 +1,12 @@
-/* @font-face {
-  font-family: red-hat;
-  src: url(https://fonts.google.com/specimen/Red+Hat+Mono);
-} */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap');
+
 .cardContainer {
-  font-family: Monospace;
+  font-family: 'Red Hat Mono';
   --padding-left: 10px;
   --primary-colour: #B5E0F8;
   --bg-colour: #F8F8F8;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -41,13 +41,13 @@
 
   padding-left: var(--padding-left);
 
-  font-size: x-large;
+  font-size: 18px;
 }
 
 .typeContainer {
   /* background-color: aqua; */
 
-  height: 10%;
+  height: 8%;
 
   display: flex;
   flex-direction: column;
@@ -56,12 +56,12 @@
 
   text-decoration: underline;
 
-  font-size: large;
+  font-size: 14px;
 }
 
 .descriptionContainer {
-  min-height: 30%;
-  max-height: 30%;
+  min-height: 37%;
+  max-height: 37%;
 }
 
 .descriptionContainer p {
@@ -73,6 +73,8 @@
   border-color: black;
   border-width: 1px;
   border-radius: 5px;
+
+  font-size: 13px;
 }
 
 .techContainer {
@@ -88,15 +90,21 @@
 .techContainer h3 {
   padding-left: var(--padding-left);
   height: 50%;
+
+  font-size: 14px;
+  text-decoration: underline;
 }
 
 .techlist {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-items: flex-start;
+  overflow-x: hidden;
+  overflow-clip-margin: 10px;
   padding-left: var(--padding-left);
   /* background-color: blueviolet; */
-  height: 50%;
+  height: 45%;
+  margin-right: 10px;
 }
 
 .techlist p {
@@ -106,10 +114,13 @@
   background-color: var(--primary-colour);
   padding-left: 10px;
   padding-right: 10px;
+  margin-right: 10px;
   width: auto;
-  display: flex;
-  flex-direction: column;
-  justify-self: space-around;
+  height: 22px;
+  text-align: center;
+  text-justify: distribute;
+
+  font-size: 11px;
 }
 
 .infoContainer {
@@ -117,7 +128,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 20%;
+  height: 25%;
 
 }
 
@@ -133,6 +144,8 @@
 
 .contactContainer h3 {
   width: auto;
+  text-decoration: underline;
+  font-size: 14px;
 }
 
 .contactContainer p {
@@ -144,6 +157,8 @@
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
+
+  font-size: 12.5px;
 }
 
 .dateContainer {
@@ -157,7 +172,8 @@
 }
 
 .dateContainer h3 {
-  
+  text-decoration: underline;
+  font-size: 14px;
 }
 
 .dateContainer p {
@@ -168,6 +184,8 @@
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
+
+  font-size: 12.5px;
 }
 
 

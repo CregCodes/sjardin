@@ -22,15 +22,22 @@ function getDateFromProps(inputString: string): string {
   return reversedChars;
 }
 
+function checkIfEmpty(inputString: string): boolean {
+  if (inputString === "") {
+    return false;
+  }
+  return true;
+}
+
 export default function Card(props: CardObject) {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.card}>
         <div className={styles.titleContainer}>
-          <h2>{props.projectTitle}</h2>
+          <h2>{props.projectTitle.toUpperCase()}</h2>
         </div>
         <div className={styles.typeContainer}>
-          <p>Come {props.projectType} with me</p>
+          <p>{`COME ${props.projectType.toUpperCase()} WITH ME >>`}</p>
         </div>
         <div className={styles.descriptionContainer}>
           <p>{props.projectDescription}</p>
@@ -38,11 +45,9 @@ export default function Card(props: CardObject) {
         <div className={styles.techContainer}>
           <h3>Technologies</h3>
           <div className={styles.techlist}>
-            <p>{props.techstack[1]}</p>
+            {checkIfEmpty(props.techstack[0]) ? <p>{props.techstack[0]}</p> : ''}
 
-            <p>{props.techstack[2]}</p>
-
-            <p>{props.techstack[3]}</p>
+            {checkIfEmpty(props.techstack[1]) ? <p>{props.techstack[1]}</p> : ''}
           </div>
         </div>
         <div className={styles.infoContainer}>
@@ -60,12 +65,3 @@ export default function Card(props: CardObject) {
   );
 }
 
-/**<div className="card w-96 bg-primary text-primary-content">
-  <div className="card-body">
-    <h2 className="card-title">Card title!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn">Buy Now</button>
-    </div>
-  </div>
-</div> */
