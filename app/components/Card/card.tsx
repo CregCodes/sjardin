@@ -11,16 +11,12 @@ export interface CardObject {
   dateCreated: string;
 }
 /** takes in a timestamp string and returns the date in order */
-function getDateFromProps(inputString: string): string {
-  const date = inputString.toString();
-
-  // Get the first 10 characters of the string
-  const firstTenChars = date.slice(0, 10);
-
-  // Reverse the order of the characters using the Array.prototype.reverse() method
-  const reversedChars = firstTenChars.split("").reverse().join("");
-
-  return reversedChars;
+function getDateFromProps(date: string): string {
+  const day = date.slice(8, 10);
+  const month = date.slice(5, 7);
+  const year = date.slice(0, 4);
+  const orderedDate = day + "/" + month + "/" + year;
+  return orderedDate;
 }
 
 function checkIfEmpty(inputString: string): boolean {
@@ -44,6 +40,10 @@ function getNumberFromType(inputString: string): number {
   return 1;
 }
 
+function handleClick() {
+  console.log('clicked');
+}
+
 export default function Card(props: CardObject) {
   const [styleIndex, setStyleIndex] = useState(getNumberFromType(props.projectType))
 
@@ -55,7 +55,7 @@ export default function Card(props: CardObject) {
         <div className={styles.titleContainer}>
           <h2>{props.projectTitle.toUpperCase()}</h2>
         </div>
-        <button className={styles.typeContainer}>
+        <button className={styles.typeContainer} onClick={handleClick}>
           <p>{`COME ${props.projectType.toUpperCase()} WITH ME >>`}</p>
         </button>
         <div className={styles.descriptionContainer}>

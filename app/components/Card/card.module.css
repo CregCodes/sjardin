@@ -3,7 +3,7 @@
 .cardContainer {
   font-family: 'Red Hat Mono';
   --padding-left: 10px;
-  --primary-colour: #B5E0F8;
+  --primary-colour: rgb(181, 224, 248);
   --bg-colour: #F8F8F8;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -11,7 +11,10 @@
 }
 
 .buildCardContainer {
-  --primary-colour: #FFD058;
+  --primary-colour: rgb(255, 208, 88);
+  --r: 255;
+  --g: 208;
+  --b: 88;
   font-family: 'Red Hat Mono';
   --padding-left: 10px;
   --bg-colour: #F8F8F8;
@@ -21,7 +24,10 @@
 }
 
 .pairCardContainer {
-  --primary-colour: #B5E0F8;
+  --primary-colour: rgb(181, 224, 248);
+  --r: 181;
+  --g: 224;
+  --b: 248;
   font-family: 'Red Hat Mono';
   --padding-left: 10px;
   --bg-colour: #F8F8F8;
@@ -31,7 +37,10 @@
 }
 
 .studyCardContainer {
-  --primary-colour: #47AE88;
+  --primary-colour: rgb(71, 174, 136);
+  --r: 71;
+  --g: 174;
+  --b: 136;
   font-family: 'Red Hat Mono';
   --padding-left: 10px;
   --bg-colour: #F8F8F8;
@@ -41,7 +50,7 @@
 }
 
 .underlay {
-  translate: -3px 13px;
+  translate: -2px 12px;
   width: 250px;
   height: 300px;
   background-color: var(--primary-colour);
@@ -114,8 +123,7 @@
 }
 
 .descriptionContainer p {
-  /* background-color: yellow; */
-  background-color: var(--primary-colour);
+  background-color: rgba(var(--r), var(--g), var(--b), 0.2);
   height: 90%;
   margin: 5px 5px 5px 5px;
   padding: 5px 8px 5px 8px;
@@ -160,7 +168,7 @@
   border-color: black;
   border-width: 1px;
   border-radius: 5px;
-  background-color: var(--primary-colour);
+  background-color: rgba(var(--r), var(--g), var(--b), 0.25);
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 10px;
@@ -202,7 +210,7 @@
   border-width: 1px;
   border-radius: 5px;
   /* background-color: aqua; */
-  background-color: var(--primary-colour);
+  background-color: rgba(var(--r), var(--g), var(--b), 0.75);
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
@@ -229,7 +237,7 @@
   border-color: black;
   border-width: 1px;
   border-radius: 5px;
-  background-color: var(--primary-colour);
+  background-color: rgba(var(--r), var(--g), var(--b), 0.3);
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
