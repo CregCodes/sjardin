@@ -3,7 +3,7 @@ import Card from "../components/Card/card";
 import Data from "../lib/sample-data/card-data.json";
 import Navbar from "components/Navbar/navbar";
 import SearchBar from "components/SearchBar/searchbar";
-import FilterBar from "components/FilterBar/filterbar";
+import FilterBar from "../components/FilterBar/filterbar";
 import CreatePost from "components/CreatePost/createpost";
 
 export interface CardObject {
