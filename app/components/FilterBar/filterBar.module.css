@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap');
+
 .filterBar {
+    font-family: 'Red Hat Mono';
+    --black: #272B29;
+    --font-white: #FFFFFF;
+    --padding-left: 12px;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -6,14 +13,76 @@
     padding: 10px 10px 10px 10px;
 }
 
+.header {
+    padding-left: 5px;
+    height: 56px;
+    font-size: 28px;
+    font-weight: medium;
+}
+
+.filterContainer {
+    margin-bottom: 10px;
+}
+
+.filterHeader {
+    border-color: var(--black);
+    background-color: var(--black);
+    color: var(--font-white);
+    padding-left: var(--padding-left);
+    height: 28px;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    font-weight: 400;
+}
+.filterOptions {
+    border-bottom: 1px solid var(--black);
+    width: 90%;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+.checkbox {
+    border-style: solid;
+    border-radius: none;
+    border-width: 1px;
+    height: 15px;
+    width: 15px;
+    border-color: black;
+}
+
+.filterOption {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.filterOption label {
+    font-size: 16px;
+    padding-left: var(--padding-left);
+}
+
 .applyButton {
     border-style: solid;
     border-width: 1px;
-    border-color: #000000;
+    width: 100%;
+    border-color: var(--black);
+    background-color: var(--black);
+    color: var(--font-white);
+    text-align: right;
+    padding-right: 10px;
+    margin: 5px 0px 5px 0px;
 }
 
 .clearButton {
-    border-style: dashed;
+    border-style: solid;
     border-width: 1px;
-    border-color: #000000;
+    width: 100%;
+    border-color: var(--black);
+    text-align: right;
+    padding-right: 10px;
+    margin: 5px 0px 5px 0px;
 }

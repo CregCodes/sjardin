@@ -15,21 +15,26 @@ type Props = {
 export default function FilterBar(props: Props) {
   const { handleCheckboxChange, handleFilterSubmit, handleFilterReset, projectType } = props;
 
-  useEffect(() => {
-    console.log(projectType);
-  }, [projectType]);
+  // useEffect(() => {
+  //   console.log(projectType);
+  // }, [projectType]);
 
   return ( 
     <div className={styles.filterBar}>
         <div className={styles.header}>
-          <h1>Filters</h1>
+          <h1>FILTERS</h1>
         </div>
       
-        <div className={styles.filterOptions}>
-          <div className={styles.filterOption}>
+        <div className={styles.filterContainer}>
+          <div className={styles.filterHeader}>
+            <button>Project Type</button>
+          </div>
+          <div className={styles.filterOptions}>
+            <div className={styles.filterOption}>
             <input
               type="checkbox"
               id="build"
+              className={styles.checkbox}
               name="build"
               value="build"
               checked={projectType.build}
@@ -41,6 +46,7 @@ export default function FilterBar(props: Props) {
             <input
               type="checkbox"
               id="pair"
+              className={styles.checkbox}
               name="pair"
               value="pair"
               checked={projectType.pair}
@@ -52,6 +58,7 @@ export default function FilterBar(props: Props) {
             <input
               type="checkbox"
               id="study"
+              className={styles.checkbox}
               name="study"
               value="study"
               checked={projectType.study}
@@ -59,12 +66,13 @@ export default function FilterBar(props: Props) {
             />
             <label htmlFor="study">Study</label>
               </div>
-        </div>
-          <div className={styles.applyButton}>
-            <button onClick={handleFilterSubmit}>Apply Filters</button>
           </div>
-          <div className={styles.clearButton}>
-            <button onClick={handleFilterReset}>Reset Filters</button>
+        </div>
+          <div>
+            <button className={styles.applyButton} onClick={handleFilterSubmit}>APPLY FILTERS</button>
+          </div>
+          <div>
+            <button className={styles.clearButton} onClick={handleFilterReset}>RESET FILTERS</button>
           </div>
         </div>
   );
