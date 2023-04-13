@@ -1,0 +1,19 @@
+.filterBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-items: space-between;
+    padding: 10px 10px 10px 10px;
+}
+
+.applyButton {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.clearButton {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
