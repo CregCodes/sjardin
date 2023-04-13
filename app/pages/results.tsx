@@ -3,7 +3,7 @@ import Card from "../components/Card/card";
 import Data from "../lib/sample-data/card-data.json";
 import Navbar from "components/Navbar/navbar";
 import SearchBar from "components/SearchBar/searchbar";
-import FilterBar from "../components/FilterBar/filterbar";
+import FilterBar from "components/FilterBar/filterbar";
 import CreatePost from "components/CreatePost/createpost";
 
 export interface CardObject {
@@ -15,6 +15,12 @@ export interface CardObject {
   techstack: string[];
   dateCreated: string;
 }
+
+type ProjectType = {
+  build: boolean;
+  study: boolean;
+  pair: boolean;
+};
 
 export default function Results() {
   // previous attempt to import json data - can be discarded
@@ -36,7 +42,8 @@ export default function Results() {
   const [cardData, setCardData] = useState<CardObject[]>(Data);
   // this state stores the initial data for the reset button - it is a temporary work around until we have the tag functionality working
   const [initialCardData, setInitialCardData] = useState<CardObject[]>(Data);
-  const [searchInput, setSearchInput] = useState("");  
+  const [searchInput, setSearchInput] = useState("");
+  const [projectType, setProjectType] = useState<ProjectType>({build: false, pair: false, study: false});
 
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchInput(e.target.value);
@@ -50,8 +57,55 @@ export default function Results() {
     });
     setCardData(newCardData);
   }
-
+  
   function handleClearSearch() {
+    setCardData(initialCardData);
+  }
+
+  function handleCheckboxChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setProjectType({...projectType, [e.target.name]: e.target.checked});
+  }
+
+  useEffect(() => {
+    console.log(projectType);
+  }, [projectType]);
+
+  function handleFilterSubmit() {
+    console.log("You submitted the filter bar");
+    // setCardData(initialCardData.filter((card) => { return card.projectType === "build"}));
+    if (projectType.build === true && projectType.pair === true && projectType.study === true) {
+      setCardData(initialCardData);
+    } else if (projectType.build === false && projectType.pair === false && projectType.study === false) {
+      setCardData(initialCardData);
+    } else if (projectType.build === true && projectType.pair === true && projectType.study === false) {
+      setCardData(initialCardData.filter((card) => {
+        return card.projectType === "build" || card.projectType === "pair";
+      }));
+    } else if (projectType.build === true && projectType.pair === false && projectType.study === true) {
+      setCardData(initialCardData.filter((card) => {
+        return card.projectType === "build" || card.projectType === "study";
+      }));
+    } else if (projectType.pair === true && projectType.build === false && projectType.study === true) {
+      setCardData(initialCardData.filter((card) => {
+        return card.projectType === "pair" || card.projectType === "study";
+      }));
+    } else if (projectType.build === true && projectType.pair === false && projectType.study === false) {
+      setCardData(initialCardData.filter((card) => {
+        return card.projectType === "build";
+      }));
+    } else if (projectType.study === true && projectType.build === false && projectType.pair === false) {
+      setCardData(initialCardData.filter((card) => {
+        return card.projectType === "study";
+      }));
+    } else if (projectType.pair === true && projectType.study === false && projectType.build === false) {
+      setCardData(initialCardData.filter((card) => {
+        return card.projectType === "pair";
+      }))
+    }
+  }
+
+  function handleFilterReset() {
+    setProjectType({build: false, pair: false, study: false})
     setCardData(initialCardData);
   }
 
@@ -66,9 +120,9 @@ export default function Results() {
           <SearchBar handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} handleClearSearch={handleClearSearch}/>
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center border-solid border-4 border-light-blue-500 ">
+      <div className="flex flex-column justify-between border-solid border-4 border-light-blue-500 ">
         <div className="w-1/4 bg-white border-solid border-4 border-light-blue-500 ">
-          <FilterBar />
+          <FilterBar handleCheckboxChange={handleCheckboxChange} handleFilterReset={handleFilterReset} projectType={projectType} handleFilterSubmit={handleFilterSubmit}/>
         </div>
         <div className="w-3/4 bg-white border-solid border-4 border-light-blue-500 flex flex-wrap justify-around m-0 p-0">
           {cardData.map((card) => {
