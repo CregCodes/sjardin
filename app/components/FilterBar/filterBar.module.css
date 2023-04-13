@@ -13,7 +13,7 @@
 }
 
 .clearButton {
-    border-style: solid;
+    border-style: dashed;
     border-width: 1px;
     border-color: #000000;
 }
