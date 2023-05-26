@@ -5,6 +5,7 @@ import Navbar from "components/Navbar/navbar";
 import SearchBar from "components/SearchBar/searchbar";
 import FilterBar from "components/FilterBar/filterbar";
 import CreatePost from "components/CreatePost/createpost";
+import SortBar from "components/SortBar/sortbar";
 
 export interface CardObject {
   id: number;
@@ -116,8 +117,9 @@ export default function Results() {
         <div className="w-1/4 bg-white border-solid border-4 border-light-blue-500 ">
           <CreatePost />
         </div>
-        <div className="w-3/4 bg-green border-solid border-4 border-black ">
+        <div className="w-3/4">
           <SearchBar handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} handleClearSearch={handleClearSearch}/>
+          <SortBar/>
         </div>
       </div>
       <div className="flex flex-column justify-between border-solid border-4 border-light-blue-500 ">

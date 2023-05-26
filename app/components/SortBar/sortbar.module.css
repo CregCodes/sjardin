@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap');
+
+.sortbyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: left;
+    font-family: 'Red Hat Mono';
+    font-size: 14px;
+}
+
+.title {
+    background-color: red;
+}
+
+.elementsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.sortElements > button {
+    border-style: thin;
+    border-color: black;
+    border-width: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    width: 160px;
+}
+
+.communities > button {
+    border-style: thin;
+    border-color: black;
+    border-width: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    width: 160px;
+}
